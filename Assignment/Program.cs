@@ -26,6 +26,16 @@ namespace Assignment
 
             bool isAuthorized = authService.AuthorizeUser(username, role);
             Console.WriteLine($"Authorization result: {isAuthorized}");
+
+            //Question (3)
+            INotificationService emailService = new EmailNotificationService();
+            INotificationService smsService = new SmsNotificationService();
+            INotificationService pushService = new PushNotificationService();
+
+
+            emailService.SendNotification("Ahmed@yahoo.com", "Welcome to the app!");
+            smsService.SendNotification("0123456789", "code is 1234.");
+            pushService.SendNotification("user_01", "You have a new message");
         }
     }
 }
